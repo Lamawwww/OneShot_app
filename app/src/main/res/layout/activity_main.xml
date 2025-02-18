@@ -29,7 +29,9 @@
         app:itemIconTint="@color/bottom_nav_selector"
         app:itemTextColor="@color/bottom_nav_selector"
         app:itemBackground="@null"
-        app:menu="@menu/bottom_nav_menu">
+        app:itemActiveIndicatorStyle="@android:color/transparent"
+        app:menu="@menu/bottom_nav_menu"
+        tools:ignore="UnknownId">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>
