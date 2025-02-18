@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "687569533478",
+    "firebase_url": "https://mangareader-df60a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mangareader-df60a",
+    "storage_bucket": "mangareader-df60a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687569533478:android:30a0fca641e4ec601904e7",
+        "android_client_info": {
+          "package_name": "com.example.oneshot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx2TKegpal14n3Y4XWOR08qn-NEruQiA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
