@@ -45,7 +45,8 @@ dependencies {
 
     implementation(libs.glideslider)
     implementation(libs.photoview)
-    implementation(libs.picasso)
+    implementation(libs.squareup.picasso)
+    implementation(libs.okio)
     implementation(libs.easyflipview)
     implementation(libs.glideslider)
 }

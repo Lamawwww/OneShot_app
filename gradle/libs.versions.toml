@@ -11,8 +11,10 @@ activity = "1.10.0"
 constraintlayout = "2.2.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseDatabase = "21.0.0"
+okio = "3.10.2"
 photoview = "2.3.0"
 picasso = "2.8"
+picassoVersion = "2.71828"
 
 [libraries]
 easyflipview = { module = "com.github.wajahatkarim3:EasyFlipView", version.ref = "easyflipview" }
@@ -25,8 +27,10 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 photoview = { module = "com.github.Baseflow:PhotoView", version.ref = "photoview" }
 picasso = { module = "com.github.square.picasso:picasso", version.ref = "picasso" }
+squareup-picasso = { module = "com.squareup.picasso:picasso", version.ref = "picassoVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
