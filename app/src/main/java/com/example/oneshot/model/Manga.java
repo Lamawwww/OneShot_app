@@ -7,15 +7,17 @@ public class Manga {
     private String Cover;
     private String Category;
     private String Description;
-    private List<Chapter> Chapters;
+    private List<Chapter> Chapter;
 
     public Manga() {
-        // bawal mawala
     }
 
-    public Manga(String Name, String Cover) {
+    public Manga(String Name, String Cover, String Category, String Description, List<Chapter> Chapter) {
         this.Name = Name;
         this.Cover = Cover;
+        this.Category = Category;
+        this.Description = Description;
+        this.Chapter = Chapter;
     }
 
     public String getName() {
@@ -32,5 +34,29 @@ public class Manga {
 
     public void setCover(String Cover) {
         this.Cover = Cover;
+    }
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    public List<Chapter> getChapter() {
+        return Chapter;
+    }
+
+    public void setChapter(List<Chapter> Chapter) {
+        this.Chapter = Chapter;
     }
 }

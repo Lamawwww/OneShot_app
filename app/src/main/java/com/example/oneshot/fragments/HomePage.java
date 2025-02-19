@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.oneshot.model.Manga;
 import com.example.oneshot.MangaAdapter;
@@ -23,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class HomePage extends Fragment {
 
     private RecyclerView recyclerViewManga;
@@ -31,6 +31,7 @@ public class HomePage extends Fragment {
     private List<Manga> mangaList;
     private DatabaseReference databaseReference;
     View view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,14 +41,15 @@ public class HomePage extends Fragment {
         recyclerViewManga = view.findViewById(R.id.recyclerViewManga);
         recyclerViewManga.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mangaList = new ArrayList<>();
-        mangaAdapter = new MangaAdapter(getContext(), mangaList);
+        mangaAdapter = new MangaAdapter(getContext(), mangaList, this::onMangaClick);
         recyclerViewManga.setAdapter(mangaAdapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Manga");   
+        databaseReference = FirebaseDatabase.getInstance().getReference("Manga");
         fetchMangas();
 
         return view;
     }
+
     private void fetchMangas() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,8 +64,14 @@ public class HomePage extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Handle possible errors.
             }
         });
+    }
+
+    private void onMangaClick(Manga manga) {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new ChapterListPage(manga));
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
