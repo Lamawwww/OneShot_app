@@ -31,7 +31,8 @@
         app:itemBackground="@null"
         app:itemActiveIndicatorStyle="@android:color/transparent"
         app:menu="@menu/bottom_nav_menu"
-        tools:ignore="UnknownId">
+        tools:ignore="UnknownId"
+        app:itemRippleColor="#6a7183">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

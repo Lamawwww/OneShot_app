@@ -1,8 +1,13 @@
 package com.example.oneshot.model;
 
+import java.util.List;
+
 public class Manga {
     private String Name;
     private String Cover;
+    private String Category;
+    private String Description;
+    private List<Chapter> Chapters;
 
     public Manga() {
         // bawal mawala

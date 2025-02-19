@@ -43,7 +43,7 @@ public class HomePage extends Fragment {
         mangaAdapter = new MangaAdapter(getContext(), mangaList);
         recyclerViewManga.setAdapter(mangaAdapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Manga");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Manga");   
         fetchMangas();
 
         return view;
