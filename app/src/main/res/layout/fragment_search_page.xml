@@ -8,15 +8,21 @@
     android:background="#1E2A3A"
     tools:context=".fragments.SearchPage">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewManga"
+        android:layout_width="406dp"
+        android:layout_height="531dp"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginBottom="76dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/topView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topView1"
+        app:layout_constraintVertical_bias="0.818">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:id="@+id/topView1"
@@ -42,20 +48,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.996" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewManga"
-        android:layout_width="406dp"
-        android:layout_height="531dp"
-
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topView1">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
     <TextView
         android:id="@+id/searchText"
         android:layout_width="95dp"
@@ -71,21 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027" />
-
-    <TextView
-        android:id="@+id/infoText"
-        android:layout_width="267dp"
-        android:layout_height="31dp"
-        android:text="Browse your favorites!"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
 
     <SearchView
         android:id="@+id/searchBar"
