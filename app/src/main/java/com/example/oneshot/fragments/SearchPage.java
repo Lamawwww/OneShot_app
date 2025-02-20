@@ -87,8 +87,7 @@ public class SearchPage extends Fragment {
         }
 
         if (filteredList.isEmpty()) {
-            TextView infoText = view.findViewById(R.id.infoText);
-            infoText.setText("There are no search results.");
+            Toast.makeText(this, "Test", Toast.LENGTH_SHORT);
         }
         else {
             mangaAdapter.setFilteredList(filteredList);
