@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -47,6 +48,7 @@ public class SearchPage extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search_page, container, false);
 
         //SEARCH BAR INITIALIZE
+
         searchView = view.findViewById(R.id.searchBar);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -84,7 +86,8 @@ public class SearchPage extends Fragment {
         }
 
         if (filteredList.isEmpty()) {
-
+            TextView infoText = view.findViewById(R.id.infoText);
+            infoText.setText("There are no search results.");
         }
         else {
             mangaAdapter.setFilteredList(filteredList);
