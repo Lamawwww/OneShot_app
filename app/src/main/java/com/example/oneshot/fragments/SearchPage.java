@@ -50,31 +50,6 @@ public class SearchPage extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_search_page, container, false);
         //SEARCH BAR INITIALIZE
-
-        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                Rect r = new Rect();
-                view.getWindowVisibleDisplayFrame(r);
-                int heightDiff = view.getRootView().getHeight() - (r.bottom - r.top);
-
-                if (heightDiff > 100) { // if more than 100 pixels, its probably a keyboard...
-                    //ok now we know the keyboard is up...
-                    View topView = view.findViewById(R.id.topView1);
-                    View bottomView = view.findViewById(R.id.topView1);
-                    topView.setVisibility(View.GONE);
-                    bottomView.setVisibility(View.GONE);
-
-                }else{
-                    //ok now we know the keyboard is down...
-                    View topView = view.findViewById(R.id.topView1);
-                    View bottomView = view.findViewById(R.id.topView1);
-                    topView.setVisibility(View.VISIBLE);
-                    bottomView.setVisibility(View.VISIBLE);
-
-                }
-            }
-        });
         searchView = view.findViewById(R.id.searchBar);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
