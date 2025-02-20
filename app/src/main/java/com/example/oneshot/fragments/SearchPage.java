@@ -77,5 +77,5 @@ public class SearchPage extends Fragment {
         transaction.commit();
     }
 }
-}
+
 
