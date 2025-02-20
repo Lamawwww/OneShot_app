@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.001" />
 
     <View
-        android:id="@+id/topView2"
+        android:id="@+id/bottomView"
         android:layout_width="0dp"
         android:layout_height="65dp"
         android:background="#1d2736"
