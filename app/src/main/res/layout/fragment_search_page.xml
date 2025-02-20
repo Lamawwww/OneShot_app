@@ -20,6 +20,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.001" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewManga"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/headerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalManga" />
+
     <TextView
         android:id="@+id/searchText"
         android:layout_width="95dp"
