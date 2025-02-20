@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E2A3A"
-    android:windowSoftInputMode="stateHidden"
     tools:context=".fragments.SearchPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
