@@ -18,6 +18,11 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.MangaViewHol
     private List<Manga> mangaList;
     private OnMangaClickListener onMangaClickListener;
 
+    public void setFilteredList(List<Manga> filteredList) {
+        this.mangaList = filteredList;
+        notifyDataSetChanged();
+    }
+
     public MangaAdapter(Context context, List<Manga> mangaList, OnMangaClickListener onMangaClickListener) {
         this.context = context;
         this.mangaList = mangaList;

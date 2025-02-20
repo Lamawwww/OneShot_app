@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -34,6 +36,8 @@ public class SearchPage extends Fragment {
     private MangaAdapter mangaAdapter;
     private List<Manga> mangaList;
     private DatabaseReference databaseReference;
+
+    private SearchView searchView;
     View view;
     @Nullable
     @Override
@@ -41,6 +45,23 @@ public class SearchPage extends Fragment {
         super.onCreate(savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_search_page, container, false);
+
+        //SEARCH BAR INITIALIZE
+        searchView = view.findViewById(R.id.searchBar);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+
         recyclerViewManga = view.findViewById(R.id.recyclerViewManga);
         recyclerViewManga.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mangaList = new ArrayList<>();
@@ -53,6 +74,23 @@ public class SearchPage extends Fragment {
         return view;
 
     }
+
+    private void filterList(String text) {
+        List<Manga> filteredList = new ArrayList<>();
+        for (Manga manga: mangaList) {
+            if (manga.getName().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(manga);
+            }
+        }
+
+        if (filteredList.isEmpty()) {
+
+        }
+        else {
+            mangaAdapter.setFilteredList(filteredList);
+        }
+    }
+
     private void fetchMangas() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
