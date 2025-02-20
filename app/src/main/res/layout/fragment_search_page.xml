@@ -13,12 +13,12 @@
         android:layout_width="412dp"
         android:layout_height="652dp"
 
+        android:layout_marginTop="152dp"
         android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/topView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topView1">
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -65,6 +65,7 @@
     <SearchView
         android:id="@+id/searchBar"
         android:layout_width="260dp"
+
         android:layout_height="31dp"
         android:background="@drawable/searchbar"
         android:backgroundTint="#FFFCFC"
