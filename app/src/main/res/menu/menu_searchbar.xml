@@ -4,6 +4,8 @@
     <item android:id="@+id/search"
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="always"
-        android:title="Type here..."
-        android:actionViewClass="android.widget.SearchView"></item>
+        android:title="Search"
+        android:actionViewClass="android.widget.SearchView">
+
+    </item>
 </menu>
