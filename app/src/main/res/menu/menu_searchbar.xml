@@ -5,7 +5,7 @@
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="always"
         android:title="Search"
-        android:actionViewClass="android.widget.SearchView">
+        app:actionViewClass="android.widget.SearchView">
 
     </item>
 </menu>
