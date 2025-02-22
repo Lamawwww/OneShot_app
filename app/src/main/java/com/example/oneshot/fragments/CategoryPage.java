@@ -98,9 +98,9 @@ public class CategoryPage extends Fragment {
         });
 
         //SLICE OF LIFE BUTTON FUNCTIONS
-        romanceButton.setOnClickListener(view -> {
+        sliceButton.setOnClickListener(view -> {
             String setSearchText = "";
-            setSearchText += "Romance";
+            setSearchText += "Slice of Life";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
