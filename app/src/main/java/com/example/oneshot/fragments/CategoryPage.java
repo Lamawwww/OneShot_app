@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -75,6 +76,7 @@ public class CategoryPage extends Fragment {
         //BUTTON INITIALIZATIONS
         Button actionButton = view1.findViewById(R.id.actionButton);
         Button romanceButton = view1.findViewById(R.id.romanceButton);
+        TextView categoryTitle = view1.findViewById(R.id.categoryTitle);
 
         //ACTION BUTTON FUNCTIONS
         actionButton.setOnClickListener(view -> {
@@ -83,8 +85,8 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
+            removeButtons();
+
         });
 
         //ROMANCE BUTTON FUNCTIONS
@@ -94,8 +96,7 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
+            removeButtons();
         });
 
         return view1;
@@ -103,7 +104,12 @@ public class CategoryPage extends Fragment {
 
     }
 
-
+    private void removeButtons() {
+        Button actionButton = view1.findViewById(R.id.actionButton);
+        Button romanceButton = view1.findViewById(R.id.romanceButton);
+        romanceButton.setVisibility(ViewGroup.GONE);
+        actionButton.setVisibility(ViewGroup.GONE);
+    }
 
 
     private void filterList(String text) {
