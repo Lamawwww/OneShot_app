@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
@@ -34,16 +35,16 @@ public class CategoryPage extends Fragment {
     private DatabaseReference databaseReference;
 
     private SearchView categoryView;
-    View view;
+    View view1;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View view = inflater.inflate(R.layout.fragment_category_page, container, false);
+        View view1 = inflater.inflate(R.layout.fragment_category_page, container, false);
         //SEARCH BAR INITIALIZE
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        categoryView = view.findViewById(R.id.categoryBar);
+        categoryView = view1.findViewById(R.id.categoryBar);
         categoryView.clearFocus();
         categoryView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -58,7 +59,7 @@ public class CategoryPage extends Fragment {
             }
         });
 
-        recyclerViewManga = view.findViewById(R.id.recyclerViewManga);
+        recyclerViewManga = view1.findViewById(R.id.recyclerViewManga);
         recyclerViewManga.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mangaList = new ArrayList<>();
         mangaAdapter = new MangaAdapter(getContext(), mangaList, this::onMangaClick);
@@ -67,11 +68,18 @@ public class CategoryPage extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("Manga");
         fetchMangas();
 
-        return view;
 
-
-
-        return view;
+        //BUTTON FUNCTIONS
+        Button actionButton = view1.findViewById(R.id.testButton);
+        actionButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Action";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
+            actionButton.setVisibility(ViewGroup.GONE);
+        });
+        return view1;
 
 
     }
