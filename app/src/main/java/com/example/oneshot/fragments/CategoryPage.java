@@ -40,7 +40,6 @@ public class CategoryPage extends Fragment {
     View view1;
     Button actionButton = view1.findViewById(R.id.actionButton);
     Button romanceButton = view1.findViewById(R.id.romanceButton);
-    Button sliceButton = view1.findViewById(R.id.sliceButton);
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
