@@ -19,7 +19,6 @@
         android:iconifiedByDefault="false"
         android:queryHint="Type here..."
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/topView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
