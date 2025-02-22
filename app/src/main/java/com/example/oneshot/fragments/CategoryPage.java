@@ -69,7 +69,7 @@ public class CategoryPage extends Fragment {
         fetchMangas();
 
 
-        //BUTTON FUNCTIONS
+        //ACTION BUTTON FUNCTIONS
         Button actionButton = view1.findViewById(R.id.actionButton);
         actionButton.setOnClickListener(view -> {
             String setSearchText = "";
@@ -78,6 +78,17 @@ public class CategoryPage extends Fragment {
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
             actionButton.setVisibility(ViewGroup.GONE);
+        });
+
+        //ROMANCE BUTTON FUNCTIONS
+        Button romanceButton = view1.findViewById(R.id.romanceButton);
+        actionButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Romance";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
+            romanceButton.setVisibility(ViewGroup.GONE);
         });
         return view1;
 
