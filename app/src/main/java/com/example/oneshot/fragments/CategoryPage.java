@@ -38,8 +38,7 @@ public class CategoryPage extends Fragment {
 
 
     View view1;
-    Button actionButton = view1.findViewById(R.id.actionButton);
-    Button romanceButton = view1.findViewById(R.id.romanceButton);
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -74,7 +73,8 @@ public class CategoryPage extends Fragment {
 
 
         //BUTTON INITIALIZATIONS
-
+        Button actionButton = view1.findViewById(R.id.actionButton);
+        Button romanceButton = view1.findViewById(R.id.romanceButton);
 
         //ACTION BUTTON FUNCTIONS
         actionButton.setOnClickListener(view -> {
