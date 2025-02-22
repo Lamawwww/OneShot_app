@@ -76,6 +76,30 @@
         app:layout_constraintVertical_bias="0.142" />
 
     <Button
+        android:id="@+id/comedyButton"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Comedy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <Button
+        android:id="@+id/dramaButton"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Drama"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <Button
         android:id="@+id/romanceButton"
         android:layout_width="150dp"
         android:layout_height="45dp"

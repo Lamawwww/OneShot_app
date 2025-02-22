@@ -76,6 +76,8 @@ public class CategoryPage extends Fragment {
         //BUTTON INITIALIZATIONS
         Button actionButton = view1.findViewById(R.id.actionButton);
         Button romanceButton = view1.findViewById(R.id.romanceButton);
+        Button comedyButton = view1.findViewById(R.id.comedyButton);
+        Button dramaButton = view1.findViewById(R.id.dramaButton);
         TextView categoryTitle = view1.findViewById(R.id.categoryTitle);
 
         //ACTION BUTTON FUNCTIONS
@@ -86,6 +88,8 @@ public class CategoryPage extends Fragment {
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
             removeButtons();
+            categoryTitle.setText(setSearchText);
+            categoryTitle.setVisibility(ViewGroup.VISIBLE);
 
         });
 
@@ -97,6 +101,32 @@ public class CategoryPage extends Fragment {
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
             removeButtons();
+            categoryTitle.setText(setSearchText);
+            categoryTitle.setVisibility(ViewGroup.VISIBLE);
+        });
+
+        //COMEDY BUTTON FUNCTIONS
+        comedyButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Comedy";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
+            removeButtons();
+            categoryTitle.setText(setSearchText);
+            categoryTitle.setVisibility(ViewGroup.VISIBLE);
+        });
+
+        //DRAMA BUTTON FUNCTIONS
+        dramaButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Drama";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
+            removeButtons();
+            categoryTitle.setText(setSearchText);
+            categoryTitle.setVisibility(ViewGroup.VISIBLE);
         });
 
         return view1;
@@ -106,9 +136,13 @@ public class CategoryPage extends Fragment {
 
     private void removeButtons() {
         Button actionButton = view1.findViewById(R.id.actionButton);
-        Button romanceButton = view1.findViewById(R.id.romanceButton);
+        Button romanceButton = view1.findViewById(R.id.dramaButton);
+        Button comedyButton = view1.findViewById(R.id.comedyButton);
+        Button dramaButton = view1.findViewById(R.id.dramaButton);
         romanceButton.setVisibility(ViewGroup.GONE);
         actionButton.setVisibility(ViewGroup.GONE);
+        comedyButton.setVisibility(ViewGroup.GONE);
+        dramaButton.setVisibility(ViewGroup.GONE);
     }
 
 
