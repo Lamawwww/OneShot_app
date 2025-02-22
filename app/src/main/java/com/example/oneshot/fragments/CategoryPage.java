@@ -70,7 +70,7 @@ public class CategoryPage extends Fragment {
 
 
         //BUTTON FUNCTIONS
-        Button actionButton = view1.findViewById(R.id.testButton);
+        Button actionButton = view1.findViewById(R.id.actionButton);
         actionButton.setOnClickListener(view -> {
             String setSearchText = "";
             setSearchText += "Action";
