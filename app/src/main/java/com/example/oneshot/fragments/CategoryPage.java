@@ -35,7 +35,12 @@ public class CategoryPage extends Fragment {
     private DatabaseReference databaseReference;
 
     private SearchView categoryView;
+
+
     View view1;
+    Button actionButton = view1.findViewById(R.id.actionButton);
+    Button romanceButton = view1.findViewById(R.id.romanceButton);
+    Button sliceButton = view1.findViewById(R.id.sliceButton);
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -70,9 +75,7 @@ public class CategoryPage extends Fragment {
 
 
         //BUTTON INITIALIZATIONS
-        Button actionButton = view1.findViewById(R.id.actionButton);
-        Button romanceButton = view1.findViewById(R.id.romanceButton);
-        Button sliceButton = view1.findViewById(R.id.sliceButton);
+
 
         //ACTION BUTTON FUNCTIONS
         actionButton.setOnClickListener(view -> {
@@ -81,8 +84,7 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            actionButton.setVisibility(ViewGroup.GONE);
-            romanceButton.setVisibility(ViewGroup.GONE);
+            removeButtons();
         });
 
         //ROMANCE BUTTON FUNCTIONS
@@ -92,8 +94,7 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
+            removeButtons();
         });
 
         //SLICE OF LIFE BUTTON FUNCTIONS
@@ -103,13 +104,21 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
+            removeButtons();
+
         });
         return view1;
 
 
     }
+
+    private void removeButtons() {
+        romanceButton.setVisibility(ViewGroup.GONE);
+        actionButton.setVisibility(ViewGroup.GONE);
+        sliceButton.setVisibility(ViewGroup.GONE);
+    }
+
+
     private void filterList(String text) {
         List<Manga> filteredList = new ArrayList<>();
         for (Manga manga: mangaList) {
