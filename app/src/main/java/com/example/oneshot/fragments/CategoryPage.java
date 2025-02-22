@@ -24,7 +24,7 @@ public class CategoryPage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View view = inflater.inflate(R.layout.fragment_category_page, container, false);
+        view = inflater.inflate(R.layout.fragment_category_page, container, false);
 
         return view;
 

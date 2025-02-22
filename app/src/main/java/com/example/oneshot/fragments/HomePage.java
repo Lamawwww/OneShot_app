@@ -36,7 +36,7 @@ public class HomePage extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+        view = inflater.inflate(R.layout.fragment_home_page, container, false);
 
         recyclerViewManga = view.findViewById(R.id.recyclerViewManga);
         recyclerViewManga.setLayoutManager(new GridLayoutManager(getContext(), 2));

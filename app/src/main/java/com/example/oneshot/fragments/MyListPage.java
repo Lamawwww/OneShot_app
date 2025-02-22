@@ -24,7 +24,7 @@ public class MyListPage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View view = inflater.inflate(R.layout.fragment_my_list_page, container, false);
+        view = inflater.inflate(R.layout.fragment_my_list_page, container, false);
 
         return view;
 
