@@ -86,7 +86,7 @@ public class CategoryPage extends Fragment {
     private void filterList(String text) {
         List<Manga> filteredList = new ArrayList<>();
         for (Manga manga: mangaList) {
-            if (manga.getName().toLowerCase().contains(text.toLowerCase())) {
+            if (manga.getCategory().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(manga);
             }
         }
