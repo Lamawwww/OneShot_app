@@ -33,7 +33,7 @@
 
         android:layout_marginTop="112dp"
         android:padding="8dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,42 +89,107 @@
             <Button
                 android:id="@+id/actionButton"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:text="Action"
+                android:layout_marginRight="5dp"
                 android:textAlignment="center"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/adventureButton"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:text="Adventure" />
-
-            <Button
-                android:id="@+id/crimeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:text="Crime" />
-
-            <Button
                 android:id="@+id/comedyButton"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="Comedy" />
-
-            <Button
-                android:id="@+id/romanceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="Romance" />
+                android:layout_height="40dp"
+                android:text="Comedy"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/dramaButton"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="Drama" />
+                android:layout_marginRight="5dp"
+                android:layout_height="40dp"
+                android:text="Drama"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/horrorButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:text="Horror"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/goreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="Gore"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/mysteryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:text="Mystery"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/psychoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:text="Psychological"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/romanceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:text="Romance"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/sliceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="Slice of Life"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/sportsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="Sports"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/naturalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="Supernatural"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/tragedyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="Tragedy"
+                android:textStyle="bold" />
         </LinearLayout>
     </HorizontalScrollView>
 

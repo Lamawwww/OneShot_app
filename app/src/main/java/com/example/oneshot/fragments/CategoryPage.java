@@ -75,9 +75,20 @@ public class CategoryPage extends Fragment {
 
         //BUTTON INITIALIZATIONS
         Button actionButton = view1.findViewById(R.id.actionButton);
-        Button romanceButton = view1.findViewById(R.id.romanceButton);
         Button comedyButton = view1.findViewById(R.id.comedyButton);
         Button dramaButton = view1.findViewById(R.id.dramaButton);
+        Button goreButton = view1.findViewById(R.id.goreButton);
+        Button horrorButton = view1.findViewById(R.id.horrorButton);
+        Button mysteryButton = view1.findViewById(R.id.mysteryButton);
+        Button psychoButton = view1.findViewById(R.id.psychoButton);
+        Button romanceButton = view1.findViewById(R.id.romanceButton);
+        Button sliceButton = view1.findViewById(R.id.sliceButton);
+        Button sportsButton = view1.findViewById(R.id.sportsButton);
+        Button naturalButton = view1.findViewById(R.id.naturalButton);
+        Button tragedyButton = view1.findViewById(R.id.tragedyButton);
+
+
+
 
 
         //ACTION BUTTON FUNCTIONS
