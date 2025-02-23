@@ -3,7 +3,11 @@ package com.example.oneshot;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.oneshot.fragments.HomePage;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +39,15 @@ public class ChapterViewActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Manga");
         fetchChapterImages(mangaName, chapterIndex);
+
+        Button homeButton = findViewById(R.id.ChapterViewHomeBtn);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChapterViewActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void fetchChapterImages(String mangaName, int chapterIndex) {
