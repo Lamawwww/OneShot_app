@@ -78,7 +78,6 @@ public class CategoryPage extends Fragment {
         Button romanceButton = view1.findViewById(R.id.romanceButton);
         Button comedyButton = view1.findViewById(R.id.comedyButton);
         Button dramaButton = view1.findViewById(R.id.dramaButton);
-        TextView categoryTitle = view1.findViewById(R.id.categoryTitle);
 
 
         //ACTION BUTTON FUNCTIONS
@@ -92,8 +91,6 @@ public class CategoryPage extends Fragment {
             actionButton.setVisibility(ViewGroup.GONE);
             comedyButton.setVisibility(ViewGroup.GONE);
             dramaButton.setVisibility(ViewGroup.GONE);
-            categoryTitle.setText(setSearchText);
-            categoryTitle.setVisibility(ViewGroup.VISIBLE);
 
         });
 
@@ -108,8 +105,6 @@ public class CategoryPage extends Fragment {
             actionButton.setVisibility(ViewGroup.GONE);
             comedyButton.setVisibility(ViewGroup.GONE);
             dramaButton.setVisibility(ViewGroup.GONE);
-            categoryTitle.setText(setSearchText);
-            categoryTitle.setVisibility(ViewGroup.VISIBLE);
         });
 
         //COMEDY BUTTON FUNCTIONS
@@ -123,8 +118,6 @@ public class CategoryPage extends Fragment {
             actionButton.setVisibility(ViewGroup.GONE);
             comedyButton.setVisibility(ViewGroup.GONE);
             dramaButton.setVisibility(ViewGroup.GONE);
-            categoryTitle.setText(setSearchText);
-            categoryTitle.setVisibility(ViewGroup.VISIBLE);
         });
 
         //DRAMA BUTTON FUNCTIONS
@@ -138,8 +131,6 @@ public class CategoryPage extends Fragment {
             actionButton.setVisibility(ViewGroup.GONE);
             comedyButton.setVisibility(ViewGroup.GONE);
             dramaButton.setVisibility(ViewGroup.GONE);
-            categoryTitle.setText(setSearchText);
-            categoryTitle.setVisibility(ViewGroup.VISIBLE);
         });
 
         return view1;
