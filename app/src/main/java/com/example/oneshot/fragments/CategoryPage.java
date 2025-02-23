@@ -77,7 +77,6 @@ public class CategoryPage extends Fragment {
         Button actionButton = view1.findViewById(R.id.actionButton);
         Button comedyButton = view1.findViewById(R.id.comedyButton);
         Button dramaButton = view1.findViewById(R.id.dramaButton);
-        Button goreButton = view1.findViewById(R.id.goreButton);
         Button horrorButton = view1.findViewById(R.id.horrorButton);
         Button mysteryButton = view1.findViewById(R.id.mysteryButton);
         Button psychoButton = view1.findViewById(R.id.psychoButton);
@@ -111,14 +110,6 @@ public class CategoryPage extends Fragment {
         dramaButton.setOnClickListener(view -> {
             String setSearchText = "";
             setSearchText += "Drama";
-            categoryView.setQuery(setSearchText, false);
-            categoryView.clearFocus();
-        });
-
-        //GORE BUTTON FUNCTIONS
-        goreButton.setOnClickListener(view -> {
-            String setSearchText = "";
-            setSearchText += "Gore";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
         });
