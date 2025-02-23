@@ -37,14 +37,8 @@ public class CategoryPage extends Fragment {
 
     private SearchView categoryView;
 
-    View view1;
-    Button actionButton = view1.findViewById(R.id.actionButton);
-    Button romanceButton = view1.findViewById(R.id.romanceButton);
-    Button comedyButton = view1.findViewById(R.id.comedyButton);
-    Button dramaButton = view1.findViewById(R.id.dramaButton);
-    TextView categoryTitle = view1.findViewById(R.id.categoryTitle);
 
-    String setSearchText = "";
+    View view1;
 
     @Nullable
     @Override
@@ -86,8 +80,10 @@ public class CategoryPage extends Fragment {
         Button dramaButton = view1.findViewById(R.id.dramaButton);
         TextView categoryTitle = view1.findViewById(R.id.categoryTitle);
 
+
         //ACTION BUTTON FUNCTIONS
         actionButton.setOnClickListener(view -> {
+            String setSearchText = "";
             setSearchText += "Action";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
@@ -138,7 +134,12 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            removeButtons();
+            romanceButton.setVisibility(ViewGroup.GONE);
+            actionButton.setVisibility(ViewGroup.GONE);
+            comedyButton.setVisibility(ViewGroup.GONE);
+            dramaButton.setVisibility(ViewGroup.GONE);
+            categoryTitle.setText(setSearchText);
+            categoryTitle.setVisibility(ViewGroup.VISIBLE);
         });
 
         return view1;
@@ -146,14 +147,6 @@ public class CategoryPage extends Fragment {
 
     }
 
-    private void removeButtons() {
-        romanceButton.setVisibility(ViewGroup.GONE);
-        actionButton.setVisibility(ViewGroup.GONE);
-        comedyButton.setVisibility(ViewGroup.GONE);
-        dramaButton.setVisibility(ViewGroup.GONE);
-        categoryTitle.setText(setSearchText);
-        categoryTitle.setVisibility(ViewGroup.VISIBLE);
-    }
 
 
     private void filterList(String text) {
