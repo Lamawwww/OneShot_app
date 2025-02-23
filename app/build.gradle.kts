@@ -42,7 +42,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
     implementation(libs.glideslider)
     implementation(libs.photoview)
     implementation(libs.squareup.picasso)
