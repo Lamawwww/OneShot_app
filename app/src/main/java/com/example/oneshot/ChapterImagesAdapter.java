@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -37,7 +38,16 @@ public class ChapterImagesAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_chapter_image, container, false);
         PhotoView photoView = view.findViewById(R.id.photoViewChapterImage);
-        Picasso.get().load(imageUrls.get(position)).into(photoView);
+        TextView pageNumberTextView = view.findViewById(R.id.pageNumberTextView);
+
+        // Load the image using Picasso
+        Picasso.get()
+                .load(imageUrls.get(position))
+                .into(photoView);
+
+        // Set the page number text
+        pageNumberTextView.setText("Page " + (position + 1) + " of " + getCount());
+
         container.addView(view);
         return view;
     }

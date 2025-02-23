@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SearchView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -15,9 +14,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.oneshot.MangaAdapter;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import com.example.oneshot.R;
 import com.example.oneshot.model.Manga;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +30,6 @@ public class CategoryPage extends Fragment {
     private MangaAdapter mangaAdapter;
     private List<Manga> mangaList;
     private DatabaseReference databaseReference;
-
     private SearchView categoryView;
 
 
@@ -139,7 +133,7 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
         });
-        view = inflater.inflate(R.layout.fragment_category_page, container, false);
+
 
         //ROMANCE BUTTON FUNCTIONS
         romanceButton.setOnClickListener(view -> {

@@ -8,4 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/pageNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="16dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Page 1 of 100"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 </FrameLayout>
