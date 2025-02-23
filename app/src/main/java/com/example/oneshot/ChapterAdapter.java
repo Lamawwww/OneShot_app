@@ -4,17 +4,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.oneshot.model.Chapter;
+import com.example.oneshot.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterViewHolder> {
     private List<Chapter> chapterList;
+    private OnChapterClickListener onChapterClickListener;
 
-    public ChapterAdapter(List<Chapter> chapterList) {
+    public ChapterAdapter(List<Chapter> chapterList, OnChapterClickListener onChapterClickListener) {
         this.chapterList = chapterList != null ? chapterList : new ArrayList<>();
+        this.onChapterClickListener = onChapterClickListener;
     }
 
     @NonNull
@@ -28,6 +34,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     public void onBindViewHolder(@NonNull ChapterViewHolder holder, int position) {
         Chapter chapter = chapterList.get(position);
         holder.textViewChapterName.setText(chapter.getChapter_name());
+        holder.itemView.setOnClickListener(v -> onChapterClickListener.onChapterClick(position));
     }
 
     @Override
@@ -42,5 +49,9 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
             super(itemView);
             textViewChapterName = itemView.findViewById(R.id.textViewChapterName);
         }
+    }
+
+    public interface OnChapterClickListener {
+        void onChapterClick(int position);
     }
 }
