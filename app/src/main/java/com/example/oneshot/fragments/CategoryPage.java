@@ -73,7 +73,7 @@ public class CategoryPage extends Fragment {
         fetchMangas();
 
 
-        //BUTTON INITIALIZATIONS
+        //BUTTON INITIALIZATIONSS
         Button actionButton = view1.findViewById(R.id.actionButton);
         Button comedyButton = view1.findViewById(R.id.comedyButton);
         Button dramaButton = view1.findViewById(R.id.dramaButton);
