@@ -171,7 +171,7 @@ public class CategoryPage extends Fragment {
         });
 
         //TRAGEDY BUTTON FUNCTIONS
-        mysteryButton.setOnClickListener(view -> {
+        tragedyButton.setOnClickListener(view -> {
             String setSearchText = "";
             setSearchText += "Tragedy";
             categoryView.setQuery(setSearchText, false);
