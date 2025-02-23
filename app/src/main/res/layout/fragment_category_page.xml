@@ -89,6 +89,20 @@
                 android:text="Action" />
 
             <Button
+                android:id="@+id/adventureButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:text="Adventure" />
+
+            <Button
+                android:id="@+id/crimeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:text="Crime" />
+
+            <Button
                 android:id="@+id/comedyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
