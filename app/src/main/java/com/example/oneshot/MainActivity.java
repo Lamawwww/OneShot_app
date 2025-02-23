@@ -1,14 +1,8 @@
 package com.example.oneshot;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
-
 import com.example.oneshot.fragments.CategoryPage;
 import com.example.oneshot.fragments.HomePage;
 import com.example.oneshot.fragments.MyListPage;
