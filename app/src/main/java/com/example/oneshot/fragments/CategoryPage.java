@@ -86,12 +86,6 @@ public class CategoryPage extends Fragment {
             setSearchText += "Action";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
-            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
-            comedyButton.setVisibility(ViewGroup.GONE);
-            dramaButton.setVisibility(ViewGroup.GONE);
-
         });
 
         //ROMANCE BUTTON FUNCTIONS
@@ -100,11 +94,6 @@ public class CategoryPage extends Fragment {
             setSearchText += "Romance";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
-            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
-            comedyButton.setVisibility(ViewGroup.GONE);
-            dramaButton.setVisibility(ViewGroup.GONE);
         });
 
         //COMEDY BUTTON FUNCTIONS
@@ -113,11 +102,6 @@ public class CategoryPage extends Fragment {
             setSearchText += "Comedy";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
-            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
-            comedyButton.setVisibility(ViewGroup.GONE);
-            dramaButton.setVisibility(ViewGroup.GONE);
         });
 
         //DRAMA BUTTON FUNCTIONS
@@ -126,11 +110,6 @@ public class CategoryPage extends Fragment {
             setSearchText += "Drama";
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
-            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
-            romanceButton.setVisibility(ViewGroup.GONE);
-            actionButton.setVisibility(ViewGroup.GONE);
-            comedyButton.setVisibility(ViewGroup.GONE);
-            dramaButton.setVisibility(ViewGroup.GONE);
         });
 
         return view1;
