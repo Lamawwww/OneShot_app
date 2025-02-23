@@ -99,14 +99,6 @@ public class CategoryPage extends Fragment {
             categoryView.clearFocus();
         });
 
-        //ROMANCE BUTTON FUNCTIONS
-        romanceButton.setOnClickListener(view -> {
-            String setSearchText = "";
-            setSearchText += "Romance";
-            categoryView.setQuery(setSearchText, false);
-            categoryView.clearFocus();
-        });
-
         //COMEDY BUTTON FUNCTIONS
         comedyButton.setOnClickListener(view -> {
             String setSearchText = "";
@@ -122,6 +114,82 @@ public class CategoryPage extends Fragment {
             categoryView.setQuery(setSearchText, false);
             categoryView.clearFocus();
         });
+
+        //GORE BUTTON FUNCTIONS
+        goreButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Gore";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //HORROR BUTTON FUNCTIONS
+        horrorButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Horror";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //MYSTERY BUTTON FUNCTIONS
+        mysteryButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Mystery";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //PSYCHOLOGICAL BUTTON FUNCTIONS
+        psychoButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Psychological";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //ROMANCE BUTTON FUNCTIONS
+        romanceButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Romance";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //SLICE OF LIFE BUTTON FUNCTIONS
+        sliceButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Slice of Life";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //SPORTS BUTTON FUNCTIONS
+        sportsButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Sports";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //SUPERNATURAL BUTTON FUNCTIONS
+        naturalButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Supernatural";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+        //TRAGEDY BUTTON FUNCTIONS
+        mysteryButton.setOnClickListener(view -> {
+            String setSearchText = "";
+            setSearchText += "Tragedy";
+            categoryView.setQuery(setSearchText, false);
+            categoryView.clearFocus();
+        });
+
+
+
+
 
         return view1;
 
