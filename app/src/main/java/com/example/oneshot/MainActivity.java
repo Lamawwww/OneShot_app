@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import com.example.oneshot.fragments.CategoryPage;
 import com.example.oneshot.fragments.HomePage;
 import com.example.oneshot.fragments.MyListPage;
+import com.example.oneshot.fragments.ProfilePage;
 import com.example.oneshot.fragments.SearchPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             selectedFragment = new SearchPage();
         }else if(itemId == R.id.nav_category){
             selectedFragment = new CategoryPage();
+        }else if(itemId == R.id.nav_profile){
+            selectedFragment = new ProfilePage();
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment)
                 .commit();

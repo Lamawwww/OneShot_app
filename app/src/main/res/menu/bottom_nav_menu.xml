@@ -22,5 +22,10 @@
         android:icon="@drawable/category"
         android:title="Category" />
 
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/account_circle_24px"
+        android:title="Profile" />
+
 
 </menu>
