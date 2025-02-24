@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.oneshot.fragments.HomePage;
+import com.example.oneshot.adapter.ChapterImagesAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

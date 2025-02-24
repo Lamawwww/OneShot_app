@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.oneshot.model.Manga;
-import com.example.oneshot.MangaAdapter;
+import com.example.oneshot.adapter.MangaAdapter;
 import com.example.oneshot.R;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;

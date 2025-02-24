@@ -1,4 +1,4 @@
-package com.example.oneshot;
+package com.example.oneshot.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
