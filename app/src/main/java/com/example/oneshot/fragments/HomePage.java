@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import android.util.Log;
+import android.widget.TextView;
 
 public class HomePage extends Fragment {
 
@@ -28,6 +29,7 @@ public class HomePage extends Fragment {
     private MangaAdapter mangaAdapter;
     private List<Manga> mangaList;
     private DatabaseReference databaseReference;
+    private TextView totalManga;
     View view;
 
     @Nullable
@@ -41,6 +43,7 @@ public class HomePage extends Fragment {
         mangaList = new ArrayList<>();
         mangaAdapter = new MangaAdapter(getContext(), mangaList, this::onMangaClick);
         recyclerViewManga.setAdapter(mangaAdapter);
+        totalManga = view.findViewById(R.id.totalManga);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Manga");
         fetchMangas();
@@ -64,6 +67,7 @@ public class HomePage extends Fragment {
                     }
                 }
                 mangaAdapter.notifyDataSetChanged();
+                totalManga.setText("Manga (" + mangaList.size() + ")");
             }
 
             @Override

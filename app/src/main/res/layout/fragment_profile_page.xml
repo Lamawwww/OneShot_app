@@ -13,16 +13,102 @@
         android:layout_width="225dp"
         android:layout_height="70dp"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="235dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="448dp"
+        android:text="Logout"
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="#6475F7"
         app:cornerRadius="8dp"
-        android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8"
+        app:layout_constraintVertical_bias="0.412" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="87dp"
+        android:layout_height="94dp"
+        android:src="@drawable/oneshotmascot"
+        app:layout_constraintBottom_toTopOf="@+id/totalManga5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/totalManga5"
+        android:layout_width="135dp"
+        android:layout_height="39dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Profile"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/UIDTextView"
+        android:layout_width="389dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="11dp"
+        android:outlineSpotShadowColor="#623C3C"
+        android:text=" UID:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <TextView
+        android:id="@+id/UsernameTextView"
+        android:layout_width="390dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:text=" Username:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailTextView" />
+
+    <TextView
+        android:id="@+id/EmailTextView"
+        android:layout_width="389dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:text=" Email:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UIDTextView" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="512dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="229dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

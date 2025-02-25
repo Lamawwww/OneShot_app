@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import com.example.oneshot.MainActivity;
 import com.example.oneshot.R;
 import com.example.oneshot.SplashActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfilePage extends Fragment {
     private Button logoutBtn;
@@ -34,6 +36,13 @@ public class ProfilePage extends Fragment {
 
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser == null) {
+            Toast.makeText(getContext(), "Please login to access this page", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
 
         logoutBtn = view.findViewById(R.id.LogoutBtn);
 

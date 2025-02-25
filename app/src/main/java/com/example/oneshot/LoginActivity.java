@@ -21,13 +21,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.oneshot.fragments.HomePage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailET, passwordET;
-    private Button loginBtn;
+    private Button loginBtn, continueWithoutLoginBtn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -40,7 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         emailET = findViewById(R.id.emailET);
         passwordET = findViewById(R.id.passwordET);
         loginBtn = findViewById(R.id.LoginBtn);
+        continueWithoutLoginBtn = findViewById(R.id.ContinueWithoutLoginBtn);
+
         loginBtn.setOnClickListener(v -> loginUser());
+        continueWithoutLoginBtn.setOnClickListener(v -> continueWithoutLogin());
 
         TextView signUpTxt = findViewById(R.id.SignUpTxt);
         String text = "Don't Have An Account? Sign Up";
@@ -49,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         int start = text.indexOf("Sign Up");
         int end = start + "Sign Up".length();
 
-// Make "Sign Up" bold and blue
+        // Make "Sign Up" bold and blue
         ForegroundColorSpan blueColor = new ForegroundColorSpan(Color.parseColor("#6475F7"));
         StyleSpan boldStyle = new StyleSpan(Typeface.BOLD);
         ClickableSpan clickableSpan = new ClickableSpan() {
@@ -75,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
 
         signUpTxt.setText(spannable);
         signUpTxt.setMovementMethod(LinkMovementMethod.getInstance()); // Make the span clickable
-
     }
 
     private void loginUser() {
@@ -115,5 +118,12 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void continueWithoutLogin() {
+        // Redirect to HomePage
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish(); // Close LoginActivity
     }
 }

@@ -137,11 +137,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/oneshoticon_transparent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ContinueWithoutLoginBtn"
+        android:layout_width="289dp"
+        android:layout_height="53dp"
+        android:backgroundTint="#374151"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"
+        android:text="Continue Without Logging In"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpTxt" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="239dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.oneshot.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.oneshot.LoginActivity;
+import com.example.oneshot.MainActivity;
 import com.example.oneshot.R;
 import com.example.oneshot.adapter.MangaBookmarkAdapter;
 import com.example.oneshot.model.Manga;
@@ -55,6 +59,8 @@ public class MyListPage extends Fragment {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if (currentUser == null) {
             Toast.makeText(getContext(), "Please log in to see your favorites.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
             return;
         }
 
