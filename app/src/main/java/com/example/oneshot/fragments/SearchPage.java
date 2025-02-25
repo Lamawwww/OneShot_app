@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -37,10 +40,11 @@ public class SearchPage extends Fragment {
         super.onCreate(savedInstanceState);
 
         view = inflater.inflate(R.layout.fragment_search_page, container, false);
-        //SEARCH BAR INITIALIZE
+        //SEARCH BAR INITIALIZES
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         searchView = view.findViewById(R.id.categoryBar);
         searchView.clearFocus();
+        TextView errorText = view.findViewById(R.id.errorText);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -68,6 +72,7 @@ public class SearchPage extends Fragment {
     }
 
     private void filterList(String text) {
+        TextView errorText = view.findViewById(R.id.errorText);
         List<Manga> filteredList = new ArrayList<>();
         for (Manga manga: mangaList) {
             if (manga.getName().toLowerCase().contains(text.toLowerCase())) {
@@ -76,10 +81,14 @@ public class SearchPage extends Fragment {
         }
 
         if (filteredList.isEmpty()) {
-
+            errorText.setText("No search results for " + text);
+            errorText.setVisibility(ViewGroup.VISIBLE);
+            recyclerViewManga.setVisibility(ViewGroup.INVISIBLE);
         }
         else {
             mangaAdapter.setFilteredList(filteredList);
+            recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
+            errorText.setVisibility(ViewGroup.INVISIBLE);
         }
     }
 
