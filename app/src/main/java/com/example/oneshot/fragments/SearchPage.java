@@ -40,7 +40,7 @@ public class SearchPage extends Fragment {
         super.onCreate(savedInstanceState);
 
         view = inflater.inflate(R.layout.fragment_search_page, container, false);
-        //SEARCH BAR INITIALIZE
+        //SEARCH BAR INITIALIZES
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         searchView = view.findViewById(R.id.categoryBar);
         searchView.clearFocus();
