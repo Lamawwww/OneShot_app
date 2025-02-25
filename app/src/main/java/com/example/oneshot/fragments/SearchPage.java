@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.SearchView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -76,7 +78,7 @@ public class SearchPage extends Fragment {
         }
 
         if (filteredList.isEmpty()) {
-
+            Toast.makeText(getContext(), "No search results for " + text, Toast.LENGTH_SHORT).show();
         }
         else {
             mangaAdapter.setFilteredList(filteredList);
