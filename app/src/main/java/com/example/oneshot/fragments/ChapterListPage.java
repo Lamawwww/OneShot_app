@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,8 +19,16 @@ import com.example.oneshot.ChapterViewActivity;
 import com.example.oneshot.R;
 import com.example.oneshot.model.Chapter;
 import com.example.oneshot.model.Manga;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ChapterListPage extends Fragment {
@@ -28,10 +38,14 @@ public class ChapterListPage extends Fragment {
     private ChapterAdapter chapterAdapter;
     private List<Chapter> chapterList;
     private Manga manga;
+    private Button toggleFavoriteButton;
+    private FirebaseAuth firebaseAuth;
+    private String mangaIndex;
 
-    public ChapterListPage(Manga manga) {
+    public ChapterListPage(Manga manga, String mangaIndex) {
         this.manga = manga;
         this.chapterList = manga.getChapter();
+        this.mangaIndex = mangaIndex; // Store the manga index passed from HomePage
     }
 
     View view;
@@ -46,6 +60,8 @@ public class ChapterListPage extends Fragment {
         textViewMangaDescription = view.findViewById(R.id.textViewMangaDescription);
         imageViewMangaCover = view.findViewById(R.id.imageViewMangaCover);
         recyclerViewChapters = view.findViewById(R.id.recyclerViewChapters);
+        toggleFavoriteButton = view.findViewById(R.id.toggle_bookmark_button);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         textViewMangaName.setText(manga.getName());
         textViewMangaDescription.setText(manga.getDescription());
@@ -68,6 +84,64 @@ public class ChapterListPage extends Fragment {
         recyclerViewChapters.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewChapters.setAdapter(chapterAdapter);
 
+        toggleFavoriteButton.setOnClickListener(v -> {
+            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+            if (currentUser == null) {
+                Toast.makeText(getContext(), "Please log in to manage your favorites.", Toast.LENGTH_SHORT).show();
+            } else {
+                toggleFavoriteStatus(mangaIndex);
+            }
+        });
+
         return view;
+    }
+
+    private void toggleFavoriteStatus(String mangaIndex) {
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference favoriteRef = userRef.child(firebaseAuth.getUid()).child("Favorites").child(mangaIndex);
+
+        favoriteRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    // Manga is already in favorites, remove it
+                    removeFromFavorites(favoriteRef);
+                } else {
+                    // Manga is not in favorites, add it
+                    addToFavorites(favoriteRef, mangaIndex);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Failed to toggle favorite status.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addToFavorites(DatabaseReference favoriteRef, String mangaIndex) {
+        long timestamp = System.currentTimeMillis();
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("mangaIndex", mangaIndex);
+        hashMap.put("timestamp", timestamp);
+
+        favoriteRef.setValue(hashMap).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(getContext(), "Added to Favorites", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Failed to add to Favorites", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void removeFromFavorites(DatabaseReference favoriteRef) {
+        favoriteRef.removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(getContext(), "Removed from Favorites", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Failed to remove from Favorites", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

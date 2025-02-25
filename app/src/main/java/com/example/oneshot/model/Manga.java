@@ -8,16 +8,18 @@ public class Manga {
     private String Category;
     private String Description;
     private List<Chapter> Chapter;
+    private String Index; // New field for storing the index
 
     public Manga() {
     }
 
-    public Manga(String Name, String Cover, String Category, String Description, List<Chapter> Chapter) {
+    public Manga(String Name, String Cover, String Category, String Description, List<Chapter> Chapter, String Index) {
         this.Name = Name;
         this.Cover = Cover;
         this.Category = Category;
         this.Description = Description;
         this.Chapter = Chapter;
+        this.Index = Index;
     }
 
     public String getName() {
@@ -58,5 +60,13 @@ public class Manga {
 
     public void setChapter(List<Chapter> Chapter) {
         this.Chapter = Chapter;
+    }
+
+    public String getIndex() {
+        return Index;
+    }
+
+    public void setIndex(String Index) {
+        this.Index = Index;
     }
 }

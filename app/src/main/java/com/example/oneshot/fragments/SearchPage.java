@@ -102,7 +102,7 @@ public class SearchPage extends Fragment {
     }
     private void onMangaClick(Manga manga) {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, new ChapterListPage(manga));
+        transaction.replace(R.id.fragment_container, new ChapterListPage(manga, manga.getIndex()));
         transaction.addToBackStack(null);
         transaction.commit();
     }

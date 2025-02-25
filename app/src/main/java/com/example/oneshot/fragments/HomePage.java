@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
 
 public class HomePage extends Fragment {
 
@@ -48,26 +49,33 @@ public class HomePage extends Fragment {
     }
 
     private void fetchMangas() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mangaList.clear();
+                int index = 0; // Manual index counter
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Manga manga = dataSnapshot.getValue(Manga.class);
-                    mangaList.add(manga);
+                    if (manga != null) {
+                        manga.setIndex(String.valueOf(index)); // Set manual index
+                        mangaList.add(manga);
+                        Log.d("FirebaseIndex", "Index: " + index + ", Key: " + dataSnapshot.getKey());
+                        index++;
+                    }
                 }
                 mangaAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Error: " + error.getMessage());
             }
         });
     }
 
     private void onMangaClick(Manga manga) {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, new ChapterListPage(manga));
+        transaction.replace(R.id.fragment_container, new ChapterListPage(manga, manga.getIndex()));
         transaction.addToBackStack(null);
         transaction.commit();
     }
