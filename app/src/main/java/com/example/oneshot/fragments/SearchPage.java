@@ -1,11 +1,15 @@
 package com.example.oneshot.fragments;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -78,10 +82,14 @@ public class SearchPage extends Fragment {
         }
 
         if (filteredList.isEmpty()) {
-            Toast.makeText(getContext(), "No search results for " + text, Toast.LENGTH_SHORT).show();
+            recyclerViewManga.setVisibility(GONE);
+            mangaAdapter.setFilteredList(filteredList);
+            TextView errorText = view.findViewById(R.id.errorText);
+            errorText.setVisibility(VISIBLE);
+            errorText.setText("No search results for "  + errorText);
         }
         else {
-            mangaAdapter.setFilteredList(filteredList);
+
         }
     }
 
