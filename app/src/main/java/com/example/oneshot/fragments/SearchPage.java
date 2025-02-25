@@ -82,6 +82,7 @@ public class SearchPage extends Fragment {
 
         if (filteredList.isEmpty()) {
             errorText.setText("No search results for " + text);
+            errorText.setVisibility(ViewGroup.VISIBLE);
         }
         else {
             mangaAdapter.setFilteredList(filteredList);
