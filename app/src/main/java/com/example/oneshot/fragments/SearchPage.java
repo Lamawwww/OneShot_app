@@ -74,6 +74,7 @@ public class SearchPage extends Fragment {
     }
 
     private void filterList(String text) {
+        TextView errorText = view.findViewById(R.id.errorText);
         List<Manga> filteredList = new ArrayList<>();
         for (Manga manga: mangaList) {
             if (manga.getName().toLowerCase().contains(text.toLowerCase())) {
@@ -84,12 +85,13 @@ public class SearchPage extends Fragment {
         if (filteredList.isEmpty()) {
             recyclerViewManga.setVisibility(GONE);
             mangaAdapter.setFilteredList(filteredList);
-            TextView errorText = view.findViewById(R.id.errorText);
+            errorText = view.findViewById(R.id.errorText);
             errorText.setVisibility(VISIBLE);
             errorText.setText("No search results for "  + errorText);
         }
         else {
-
+            recyclerViewManga.setVisibility(VISIBLE);
+            errorText.setVisibility(VISIBLE);
         }
     }
 
