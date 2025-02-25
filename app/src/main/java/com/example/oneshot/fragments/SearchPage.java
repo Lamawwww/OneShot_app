@@ -88,6 +88,7 @@ public class SearchPage extends Fragment {
         else {
             mangaAdapter.setFilteredList(filteredList);
             recyclerViewManga.setVisibility(ViewGroup.VISIBLE);
+            errorText.setVisibility(ViewGroup.INVISIBLE);
         }
     }
 
