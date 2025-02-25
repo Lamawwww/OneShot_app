@@ -1,8 +1,5 @@
 package com.example.oneshot.fragments;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +44,7 @@ public class SearchPage extends Fragment {
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         searchView = view.findViewById(R.id.categoryBar);
         searchView.clearFocus();
+        TextView errorText = view.findViewById(R.id.errorText);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -83,15 +81,10 @@ public class SearchPage extends Fragment {
         }
 
         if (filteredList.isEmpty()) {
-            recyclerViewManga.setVisibility(GONE);
-            mangaAdapter.setFilteredList(filteredList);
-            errorText = view.findViewById(R.id.errorText);
-            errorText.setVisibility(VISIBLE);
-            errorText.setText("No search results for "  + errorText);
+            errorText.setText("No search results for " + text);
         }
         else {
-            recyclerViewManga.setVisibility(VISIBLE);
-            errorText.setVisibility(VISIBLE);
+            mangaAdapter.setFilteredList(filteredList);
         }
     }
 
