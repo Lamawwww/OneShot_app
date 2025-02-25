@@ -3,6 +3,7 @@ package com.example.oneshot.model;
 import java.util.List;
 
 public class Manga {
+    private String uid;
     private String Name;
     private String Cover;
     private String Category;
@@ -13,7 +14,8 @@ public class Manga {
     public Manga() {
     }
 
-    public Manga(String Name, String Cover, String Category, String Description, List<Chapter> Chapter, String Index) {
+    public Manga(String uid, String Name, String Cover, String Category, String Description, List<Chapter> Chapter, String Index) {
+        this.uid = uid;
         this.Name = Name;
         this.Cover = Cover;
         this.Category = Category;
@@ -69,4 +71,13 @@ public class Manga {
     public void setIndex(String Index) {
         this.Index = Index;
     }
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+
 }

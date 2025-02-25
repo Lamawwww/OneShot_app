@@ -40,12 +40,13 @@ public class ChapterListPage extends Fragment {
     private Manga manga;
     private Button toggleFavoriteButton;
     private FirebaseAuth firebaseAuth;
-    private String mangaIndex;
+    private String mangaUID;
 
-    public ChapterListPage(Manga manga, String mangaIndex) {
+    // Ensure mangaUID is passed correctly in the constructor
+    public ChapterListPage(Manga manga, String mangaUID) {
         this.manga = manga;
         this.chapterList = manga.getChapter();
-        this.mangaIndex = mangaIndex; // Store the manga index passed from HomePage
+        this.mangaUID = mangaUID;
     }
 
     View view;
@@ -67,19 +68,16 @@ public class ChapterListPage extends Fragment {
         textViewMangaDescription.setText(manga.getDescription());
         Picasso.get().load(manga.getCover()).into(imageViewMangaCover);
 
-        //test pag null
+
         if (chapterList == null) {
             chapterList = new ArrayList<>();
         }
 
-        chapterAdapter = new ChapterAdapter(chapterList, new ChapterAdapter.OnChapterClickListener() {
-            @Override
-            public void onChapterClick(int position) {
-                Intent intent = new Intent(getActivity(), ChapterViewActivity.class);
-                intent.putExtra("mangaName", manga.getName());
-                intent.putExtra("chapterIndex", position);
-                startActivity(intent);
-            }
+        chapterAdapter = new ChapterAdapter(chapterList, position -> {
+            Intent intent = new Intent(getActivity(), ChapterViewActivity.class);
+            intent.putExtra("mangaName", manga.getName());
+            intent.putExtra("chapterIndex", position);
+            startActivity(intent);
         });
         recyclerViewChapters.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewChapters.setAdapter(chapterAdapter);
@@ -89,16 +87,20 @@ public class ChapterListPage extends Fragment {
             if (currentUser == null) {
                 Toast.makeText(getContext(), "Please log in to manage your favorites.", Toast.LENGTH_SHORT).show();
             } else {
-                toggleFavoriteStatus(mangaIndex);
+                if (mangaUID != null) {
+                    toggleFavoriteStatus(mangaUID);
+                } else {
+                    Toast.makeText(getContext(), "Manga UID is null.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         return view;
     }
 
-    private void toggleFavoriteStatus(String mangaIndex) {
+    private void toggleFavoriteStatus(String mangaUID) {
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users");
-        DatabaseReference favoriteRef = userRef.child(firebaseAuth.getUid()).child("Favorites").child(mangaIndex);
+        DatabaseReference favoriteRef = userRef.child(firebaseAuth.getUid()).child("Favorites").child(mangaUID);
 
         favoriteRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -108,7 +110,7 @@ public class ChapterListPage extends Fragment {
                     removeFromFavorites(favoriteRef);
                 } else {
                     // Manga is not in favorites, add it
-                    addToFavorites(favoriteRef, mangaIndex);
+                    addToFavorites(favoriteRef, mangaUID);
                 }
             }
 
@@ -119,11 +121,11 @@ public class ChapterListPage extends Fragment {
         });
     }
 
-    private void addToFavorites(DatabaseReference favoriteRef, String mangaIndex) {
+    private void addToFavorites(DatabaseReference favoriteRef, String mangaUID) {
         long timestamp = System.currentTimeMillis();
 
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("mangaIndex", mangaIndex);
+        hashMap.put("mangaUID", mangaUID);
         hashMap.put("timestamp", timestamp);
 
         favoriteRef.setValue(hashMap).addOnCompleteListener(task -> {

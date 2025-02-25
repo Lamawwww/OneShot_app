@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E2A3A"
+    app:circularflow_radiusInDP="8dp"
     tools:context=".fragments.SearchPage">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,11 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
 
+        android:layout_marginTop="5dp"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topView1">
+        app:layout_constraintTop_toBottomOf="@+id/categoryBar">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -30,6 +32,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="106dp"
+        android:layout_height="37dp"
+        android:fontFamily="sans-serif-black"
+        android:text="OneShot"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/topView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="71dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/topView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topView1"
+        app:srcCompat="@drawable/oneshotmascot" />
 
     <View
         android:id="@+id/bottomView"
@@ -44,17 +73,122 @@
     <SearchView
         android:id="@+id/categoryBar"
         android:layout_width="377dp"
-
         android:layout_height="37dp"
-        android:background="@drawable/searchbar"
-        android:backgroundTint="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
         android:iconifiedByDefault="false"
         android:queryHint="Search"
-        app:layout_constraintBottom_toBottomOf="@+id/topView1"
-        app:layout_constraintEnd_toEndOf="@+id/topView1"
+        app:circularflow_radiusInDP="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintTop_toBottomOf="@+id/topView1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1E2A3A">
+
+            <View
+                android:id="@+id/headerView"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:background="#1d2736"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/headerView2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="#1d2736"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewManga"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/headerView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalManga" />
+
+            <TextView
+                android:id="@+id/totalManga"
+                android:layout_width="106dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Manga"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerView" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="37dp"
+                android:fontFamily="sans-serif-black"
+                android:text="OneShot"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/headerView"
+                app:layout_constraintEnd_toEndOf="@+id/headerView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.571" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="71dp"
+                android:layout_height="59dp"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/headerView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/headerView"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/oneshotmascot" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="106dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="OneShot"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/headerView"
+            app:layout_constraintEnd_toEndOf="@+id/headerView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.571" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="71dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="@+id/headerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/headerView"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/oneshotmascot" />
+    </SearchView>
 
     <TextView
         android:id="@+id/errorText"
@@ -69,7 +203,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/bottomView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E2A3A">
@@ -11,22 +12,9 @@
         android:layout_height="65dp"
         android:background="#1d2736"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="65dp"
-        android:background="@drawable/rounded_button"
-        android:scaleType="centerInside"
-        android:src="@drawable/search_home"
-        app:layout_constraintBottom_toBottomOf="@+id/headerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/headerView"
-        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/headerView2"
@@ -59,5 +47,31 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerView" />
+
+    <TextView
+        android:layout_width="106dp"
+        android:layout_height="37dp"
+        android:fontFamily="sans-serif-black"
+        android:text="OneShot"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/headerView"
+        app:layout_constraintEnd_toEndOf="@+id/headerView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="71dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/headerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/oneshotmascot" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

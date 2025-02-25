@@ -1,9 +1,17 @@
 package com.example.oneshot;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -43,11 +51,35 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerBtn.setOnClickListener(v -> registerUser());
 
-        TextView signIn = findViewById(R.id.SignInTxt);
-        signIn.setOnClickListener(view -> {
-            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-            startActivity(intent);
-        });
+        TextView signInTxt = findViewById(R.id.SignInTxt);
+        String text = "Already Have An Account? Sign In";
+        SpannableString spannable = new SpannableString(text);
+
+        int start = text.indexOf("Sign In");
+        int end = start + "Sign In".length();
+
+// Make "Sign In" bold and blue
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                // Handle the "Sign In" click (e.g., navigate to SignInActivity)
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setColor(Color.parseColor("#6475F7")); // Ensures color stays #6475F7
+                ds.setTypeface(Typeface.DEFAULT_BOLD); // Keeps it bold
+                ds.setUnderlineText(false); // Removes underline
+            }
+        };
+
+        spannable.setSpan(clickableSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        signInTxt.setText(spannable);
+        signInTxt.setMovementMethod(LinkMovementMethod.getInstance()); // Make the span clickable
     }
 
     private void registerUser() {

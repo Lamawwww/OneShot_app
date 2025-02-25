@@ -1,10 +1,13 @@
 package com.example.oneshot.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +43,7 @@ public class SearchPage extends Fragment {
         super.onCreate(savedInstanceState);
 
         view = inflater.inflate(R.layout.fragment_search_page, container, false);
+
         //SEARCH BAR INITIALIZES
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         searchView = view.findViewById(R.id.categoryBar);

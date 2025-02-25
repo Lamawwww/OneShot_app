@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.oneshot.R;
@@ -65,9 +66,9 @@ public class MyListPage extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 favoriteMangaList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String mangaIndex = dataSnapshot.getKey();
-                    if (mangaIndex != null) {
-                        loadMangaDetails(mangaIndex);
+                    String mangaUID = dataSnapshot.getKey();
+                    if (mangaUID != null) {
+                        loadMangaDetails(mangaUID);
                     }
                 }
             }
@@ -79,13 +80,14 @@ public class MyListPage extends Fragment {
         });
     }
 
-    private void loadMangaDetails(String mangaIndex) {
-        DatabaseReference mangaRef = FirebaseDatabase.getInstance().getReference("Manga").child(mangaIndex);
+    private void loadMangaDetails(String mangaUID) {
+        DatabaseReference mangaRef = FirebaseDatabase.getInstance().getReference("Manga").child(mangaUID);
         mangaRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Manga manga = snapshot.getValue(Manga.class);
                 if (manga != null) {
+                    manga.setUid(mangaUID); // Set the UID for the Manga object
                     favoriteMangaList.add(manga);
                     mangaAdapter.notifyDataSetChanged();
                 }
@@ -99,6 +101,9 @@ public class MyListPage extends Fragment {
     }
 
     private void onMangaClick(Manga manga) {
-        // Handle manga click event
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new ChapterListPage(manga, manga.getUid()));
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
