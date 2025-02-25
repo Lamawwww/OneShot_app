@@ -22,6 +22,7 @@
         android:layout_height="65dp"
         android:background="#1d2736"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -132,9 +133,9 @@
         android:id="@+id/toggle_bookmark_button"
         android:layout_width="220dp"
         android:layout_height="56dp"
+        android:backgroundTint="#374151"
         android:text="Add To List"
         android:textSize="20sp"
-        android:backgroundTint="#374151"
         app:icon="@drawable/bookmark_24px"
         app:iconPadding="0dp"
         app:iconSize="28dp"

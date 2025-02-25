@@ -1,6 +1,7 @@
 package com.example.oneshot.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -202,19 +203,26 @@ public class CategoryPage extends Fragment {
     }
 
     private void fetchMangas() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mangaList.clear();
+                int index = 0; // Manual index counter
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Manga manga = dataSnapshot.getValue(Manga.class);
-                    mangaList.add(manga);
+                    if (manga != null) {
+                        manga.setIndex(String.valueOf(index)); // Set manual index
+                        mangaList.add(manga);
+                        Log.d("FirebaseIndex", "Index: " + index + ", Key: " + dataSnapshot.getKey());
+                        index++;
+                    }
                 }
                 mangaAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Error: " + error.getMessage());
             }
         });
     }
